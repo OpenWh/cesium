@@ -1063,8 +1063,8 @@ define([
         var drawFS = fs;
 
         if (hasBatchTable) {
-            drawVS = batchTable.getVertexShaderCallback()(drawVS, false);
-            drawFS = batchTable.getFragmentShaderCallback()(drawFS, false);
+            drawVS = batchTable.getVertexShaderCallback(false)(drawVS);
+            drawFS = batchTable.getFragmentShaderCallback(false, 'highlight'/*colorBlendMode*/)(drawFS);
         }
 
         var pickVS = vs;

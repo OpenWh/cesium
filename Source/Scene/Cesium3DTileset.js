@@ -142,6 +142,11 @@ define([
         this._maximumNumberOfLoadedTiles = defaultValue(options.maximumNumberOfLoadedTiles, 256);
         this._styleEngine = new Cesium3DTileStyleEngine();
 
+        // TODO : support enum instead? - Using a string is similar to refinement 'add' vs 'replace'
+        // How per-feature colors interact with the source colors
+        // Options are 'highlight', 'replace', and 'mix'
+        this._colorBlendMode = 'replace';
+
         this._modelMatrix = defined(options.modelMatrix) ? Matrix4.clone(options.modelMatrix) : Matrix4.clone(Matrix4.IDENTITY);
 
         /**
